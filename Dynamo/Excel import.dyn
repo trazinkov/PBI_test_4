@@ -1,0 +1,653 @@
+{
+  "Uuid": "93631d3c-a455-423c-93a5-a3cd072b3168",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "Excel import",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Point.Z": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Point.ByCoordinates": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      }
+    }
+  },
+  "Inputs": [
+    {
+      "Id": "954bb67b1a944d28a381159e92654e3f",
+      "Name": "Mode",
+      "Type": "number",
+      "Value": "2",
+      "NumberType": "Double",
+      "Description": "Creates a number.",
+      "SelectedIndex": 0
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.FileObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "3c9e3903f25048d5acd270741d393aba",
+      "Inputs": [
+        {
+          "Id": "e161799c4c2b42acbd07587ceb8553ab",
+          "Name": "path",
+          "Description": "Path to the file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "634192b88e9e4df8a4c5292a7a0a8d86",
+          "Name": "file",
+          "Description": "File object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a file object from a path."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.IO.FileSystem.ReadText@var",
+      "Id": "250ca96405434b4394e9e991221aad56",
+      "Inputs": [
+        {
+          "Id": "1e3bf64089d149198d1fb2094522ba82",
+          "Name": "file",
+          "Description": "File object to read text from\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b9c616baf19b4f5883623631236025c9",
+          "Name": "string",
+          "Description": "Contents of the text file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Reads a text file and returns the contents as a string.\n\nFileSystem.ReadText (file: var): string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "53d5cd732c1e4493aaba0ea823108099",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c4c338cab87a402ca02d9289a87856e8",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleInput, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "InputValue": 2.0,
+      "Id": "954bb67b1a944d28a381159e92654e3f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4b59b8ebc3384881ab715b5b256c07ed",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a number."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "C:\\Anatoly\\20 ZT\\22 Power BI  - summary schedule\\Development\\Phase 10 - Netto and Brutto\\Python\\Create schedule from ITWO.py",
+      "Id": "0a6dbb516ae04d9f8902599a8aa28880",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "548d0a2b314f4143bb5bac3a8c18a11e",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonStringNode, PythonNodeModels",
+      "Engine": "CPython3",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "2d0d8fc2311b4aa5ba08b4b0cbd5b474",
+      "Inputs": [
+        {
+          "Id": "7ca7143162fe43a6869aab1a2ee2f4e8",
+          "Name": "script",
+          "Description": "Python script to run.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "152654d46d8b444ea9fba86800179ad5",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f9fead7d46034b3aa4ec805432459a91",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "54cd63d26034476b95562e075698b9ea",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6d89bab39d49445f8812101160a79c77",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs a Python script from a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSOffice.Data.ExportToExcel@string,string,int,int,var[][],bool,bool",
+      "Id": "80e9f63e949941f4b6a02c5d41af6424",
+      "Inputs": [
+        {
+          "Id": "56b3e1207b9449f1b3e890bbc916df05",
+          "Name": "filePath",
+          "Description": "File representing the Excel workbook\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1c11e76e37fd4d438c591024ace45d3a",
+          "Name": "sheetName",
+          "Description": "Name of the worksheet containing data\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b72f3e1832e5488eb6a8823008ae8181",
+          "Name": "startRow",
+          "Description": "Start row for writing data. Enter 0 for Row 1, 1 for Row 2, etc.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ab5e2780ef3b40f6b688d541043b47b2",
+          "Name": "startColumn",
+          "Description": "Start column for writing data. Enter 0 for Column A, 1 for Column B, etc.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ea6d6edaebd8435387540b062cc778d9",
+          "Name": "data",
+          "Description": "Data to write to the spreadsheet\n\nvar[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "86be5c82fd54479ab2d72a8678fc3ca7",
+          "Name": "overWrite",
+          "Description": "Toggle to clear spreadsheet before writing\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "84e1b11c265145c28d0d110737bf19b3",
+          "Name": "writeAsString",
+          "Description": "Toggle to switch between writing Excel file as strings\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6a5ee4c545b14c3c8391eeaf8c870b72",
+          "Name": "data",
+          "Description": "Rows of data from the Excel worksheet",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Write data to a Microsoft Excel spreadsheet. Data is written by row with sublists to be written in successive rows. Rows and columns are zero-indexed; for example, the value in the data list at [0,0] will be written to cell A1. Null values and empty lists are written to Excel as empty cells. This node requires Microsoft Excel to be installed.\n\nData.ExportToExcel (filePath: string, sheetName: string, startRow: int, startColumn: int, data: var[][], overWrite: bool = false, writeAsString: bool = false): var[][]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "HintPath": "C:\\Anatoly\\20 ZT\\22 Power BI  - summary schedule\\Development\\Phase 10 - Netto and Brutto\\Excel\\Tables_parameters",
+      "InputValue": "..\\Excel\\Tables_parameters",
+      "NodeType": "ExtensionNode",
+      "Id": "b3a92c2f8d754e24a260270cc3bf94d7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "731b83c6291f4552baac28def9e1705d",
+          "Name": "",
+          "Description": "File Path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system to get its file path."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Strabag parameters\r\n",
+      "Id": "ad2a3dad808946398170317828de6f12",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8566c3db52144d788960c2bbfdad5d19",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleInput, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "InputValue": 0.0,
+      "Id": "6c4aa8261ac54d67ab205c36b36af0cb",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "11e2a54bb6d2405e9c713de6c35c4052",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a number."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "29c9274def1c4d05a723f5eceb96fe2c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "003a76c89d1147dbafea9e23614f50bd",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "HintPath": "C:\\Anatoly\\20 ZT\\22 Power BI  - summary schedule\\Development\\Phase 10 - Netto and Brutto\\Excel\\ITWO_parameters.xlsx",
+      "InputValue": "..\\Excel\\ITWO_parameters.xlsx",
+      "NodeType": "ExtensionNode",
+      "Id": "5d5b21c1b30d4b0fb0828277fe3e8c99",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c930d9236abb41179b938a24ddae8ef3",
+          "Name": "",
+          "Description": "File Path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system to get its file path."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "634192b88e9e4df8a4c5292a7a0a8d86",
+      "End": "1e3bf64089d149198d1fb2094522ba82",
+      "Id": "ef90e88322864ac89285251697821040",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "634192b88e9e4df8a4c5292a7a0a8d86",
+      "End": "152654d46d8b444ea9fba86800179ad5",
+      "Id": "392ed1c3e6e24b63aaf92e9a7c888ecf",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b9c616baf19b4f5883623631236025c9",
+      "End": "7ca7143162fe43a6869aab1a2ee2f4e8",
+      "Id": "4f1e1ec3769b41c89395b39e75b804cd",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c4c338cab87a402ca02d9289a87856e8",
+      "End": "f9fead7d46034b3aa4ec805432459a91",
+      "Id": "e696df539e564acfaf5f86efb6bf1463",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "4b59b8ebc3384881ab715b5b256c07ed",
+      "End": "54cd63d26034476b95562e075698b9ea",
+      "Id": "50bb76312c3a407baeb817583bcc9cf4",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "548d0a2b314f4143bb5bac3a8c18a11e",
+      "End": "e161799c4c2b42acbd07587ceb8553ab",
+      "Id": "fb7181f72e28469894521c9d52906bd7",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "8566c3db52144d788960c2bbfdad5d19",
+      "End": "1c11e76e37fd4d438c591024ace45d3a",
+      "Id": "626f9cbddda54926b28426067dba7522",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "11e2a54bb6d2405e9c713de6c35c4052",
+      "End": "b72f3e1832e5488eb6a8823008ae8181",
+      "Id": "45faff3066b64ee7a75cdb834724e56f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "11e2a54bb6d2405e9c713de6c35c4052",
+      "End": "ab5e2780ef3b40f6b688d541043b47b2",
+      "Id": "9877d4ccc9eb45ca8c84641c7eec63e9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "003a76c89d1147dbafea9e23614f50bd",
+      "End": "86be5c82fd54479ab2d72a8678fc3ca7",
+      "Id": "30300439b25d4dd38d376d321d94ce0e",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Create schedule from ITWO.py",
+      "ReferenceType": "External",
+      "Nodes": [
+        "0a6dbb516ae04d9f8902599a8aa28880"
+      ]
+    },
+    {
+      "Name": "ITWO_parameters.xlsx",
+      "ReferenceType": "External",
+      "Nodes": [
+        "5d5b21c1b30d4b0fb0828277fe3e8c99"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.13",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "2.0",
+      "Data": {}
+    }
+  ],
+  "Author": "None provided",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 58.182941765090725,
+      "EyeY": -12.035118055657877,
+      "EyeZ": -4.8834219062721331,
+      "LookX": -29.727088023882075,
+      "LookY": 0.4041266219029982,
+      "LookZ": -22.555395694092677,
+      "UpX": 0.17920547659125369,
+      "UpY": 0.97437006478621047,
+      "UpZ": 0.13597196038228221
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "File From Path",
+        "ShowGeometry": true,
+        "Id": "3c9e3903f25048d5acd270741d393aba",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 464.97853541433471,
+        "Y": 459.04254362081809
+      },
+      {
+        "Name": "FileSystem.ReadText",
+        "ShowGeometry": true,
+        "Id": "250ca96405434b4394e9e991221aad56",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 779.86098096106366,
+        "Y": 343.823082353121
+      },
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "53d5cd732c1e4493aaba0ea823108099",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 776.28782671351883,
+        "Y": 563.46930562627062
+      },
+      {
+        "Name": "Mode",
+        "ShowGeometry": true,
+        "Id": "954bb67b1a944d28a381159e92654e3f",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 805.565659322362,
+        "Y": 746.35695025219911
+      },
+      {
+        "Name": "PBI",
+        "ShowGeometry": true,
+        "Id": "0a6dbb516ae04d9f8902599a8aa28880",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 134.75582826602852,
+        "Y": 457.56006235801942
+      },
+      {
+        "Name": "Python Script From String",
+        "ShowGeometry": true,
+        "Id": "2d0d8fc2311b4aa5ba08b4b0cbd5b474",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1163.95454465198,
+        "Y": 426.737009249092
+      },
+      {
+        "Name": "Data.ExportToExcel",
+        "ShowGeometry": true,
+        "Id": "80e9f63e949941f4b6a02c5d41af6424",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1835.80279245033,
+        "Y": -99.3978362687996
+      },
+      {
+        "Name": "Revit Tables Parameters",
+        "ShowGeometry": true,
+        "Id": "b3a92c2f8d754e24a260270cc3bf94d7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1319.9679444298183,
+        "Y": -616.05416572129354
+      },
+      {
+        "Name": "String",
+        "ShowGeometry": true,
+        "Id": "ad2a3dad808946398170317828de6f12",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1351.70095014136,
+        "Y": -133.409240559374
+      },
+      {
+        "Name": "Number",
+        "ShowGeometry": true,
+        "Id": "6c4aa8261ac54d67ab205c36b36af0cb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1388.27974881626,
+        "Y": 13.4067248690607
+      },
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "29c9274def1c4d05a723f5eceb96fe2c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1330.42383230979,
+        "Y": 145.612992573937
+      },
+      {
+        "Name": "ITWO Parameters",
+        "ShowGeometry": true,
+        "Id": "5d5b21c1b30d4b0fb0828277fe3e8c99",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1323.9984705240906,
+        "Y": -469.25427088002203
+      }
+    ],
+    "Annotations": [],
+    "X": 574.08158743362219,
+    "Y": 535.40990961412058,
+    "Zoom": 0.56615563734379215
+  }
+}
